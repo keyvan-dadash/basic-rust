@@ -1,10 +1,9 @@
 fn main() {
     
-    let a = ["one", "two", "three", "four", "five"];
+    
 
+    for number in (1..4).rev() {
 
-    for s in a.iter() {
-
-        println!("i got {}", s);
+        println!("hello {}", number);
     }
 }
