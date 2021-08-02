@@ -1,9 +1,7 @@
 fn main() {
-    let x = 5;
+    
 
-    let x = x + 1;
+    let tuple: (i32, i16) = (4, 5);
 
-    let x = x * 2;
-
-    println!("The value of x is: {}", x);
+    println!("hello is {}", tuple.1);
 }
