@@ -1,13 +1,10 @@
 fn main() {
     
-    let mut g = 0;
+    let a = ["one", "two", "three", "four", "five"];
 
-    
-    while g != 10 {
-        g +=1;
 
-        println!("i dont give fuck");
+    for s in a.iter() {
+
+        println!("i got {}", s);
     }
-
-    println!("after loop got {}", g);
 }
