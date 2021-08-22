@@ -30,5 +30,5 @@ fn main() {
 
     println!("Black is {}, {}, {}", black.0, black.1, black.2);
 
-    println!("User info is {} with email {}, and it's {}", u2.user, u2.email, u2.is_active);
+    println!("User info is {} with email {}, and it's {}, and coutn sign {}", u2.user, u2.email, u2.is_active, u2.count_of_sign);
 }

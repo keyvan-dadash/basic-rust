@@ -18,5 +18,5 @@ fn main() {
         count_of_sign: 1,
     };
 
-    println!("User info is {} with email {}, and it's {}", u1.user, u1.email, u1.is_active)
+    println!("User info is {} with email {}, and it's {} and {}", u1.user, u1.email, u1.is_active, u1.count_of_sign);
 }
