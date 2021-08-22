@@ -7,6 +7,8 @@ struct User {
     count_of_sign: u64,
 }
 
+struct Color(i32, i32, i32);
+
 fn main() {
 
 
@@ -24,5 +26,9 @@ fn main() {
         ..u1
     };
 
-    println!("User info is {} with email {}, and it's {}", u2.user, u2.email, u2.is_active)
+    let black = Color(0, 0, 0);
+
+    println!("Black is {}, {}, {}", black.0, black.1, black.2);
+
+    println!("User info is {} with email {}, and it's {}", u2.user, u2.email, u2.is_active);
 }
