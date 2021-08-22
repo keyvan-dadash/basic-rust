@@ -35,6 +35,14 @@ fn main() {
     println!("value of quarter is {}", valu_in_cent(s));
 
 
+    let y = Coin::Quarter(UsState::Alaska);
+
+    if let Coin::Quarter(state) = y {
+        println!("hello {:#?}", state);
+    } else {
+        println!("okkkkk");
+    }
+
 
     let l = Coin::Dime;
 
