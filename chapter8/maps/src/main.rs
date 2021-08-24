@@ -29,4 +29,8 @@ fn main() {
             println!("value does not exists");
         }
     }
+
+    for (keyy, valuee) in &map {
+        println!("value {} is for key {}", valuee, keyy);
+    }
 }
