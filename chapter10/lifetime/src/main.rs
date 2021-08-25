@@ -12,9 +12,11 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 
 fn main() {
     
-    let string1 = String::from("Hellooooooo");
-    let string2 = "sdlkfj";
-
-    let resutl = longest(&string1, string2);
-    println!("Longest string is {}", resutl);
+    let string1 = String::from("long string is long");
+    let result;
+    {
+        let string2 = String::from("xyz");
+        result = longest(string1.as_str(), string2.as_str());
+    }
+    println!("The longest string is {}", result);
 }
