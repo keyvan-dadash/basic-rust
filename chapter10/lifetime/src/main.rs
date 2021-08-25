@@ -10,13 +10,29 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
+
+#[derive(Debug)]
+struct ImportantExcerpt<'a>
+{
+    x: &'a str
+}
+
 fn main() {
     
     let string1 = String::from("long string is long");
-    let result;
+
+    let is_valid_struct;
     {
         let string2 = String::from("xyz");
-        result = longest(string1.as_str(), string2.as_str());
+        let result = longest(string1.as_str(), string2.as_str());
+        println!("The longest string is {}", result);
+
+        is_valid_struct = ImportantExcerpt {
+            x: result,
+        }
     }
-    println!("The longest string is {}", result);
+
+    println!("content of struct is {:#?}", is_valid_struct);
+
+
 }
