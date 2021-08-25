@@ -1,22 +1,17 @@
 
 
 use std::io::ErrorKind;
+use std::io;
 use std::fs::File;
+use std::io::Read;
 
 fn main() {
     
-    let f = File::open("hello.txt");
-
-    let f = match f {
-        Ok(file) => file,
-        Err(error) => match error.kind() {
-            ErrorKind::NotFound => match File::create("hello.txt") {
-                Ok(file) => file,
-                Err(error) => panic!("Cannot create hello.txt with error {:?}", error)
-            }
-            other_error => {
-                panic!("Cannot open hello.txt with error {:?}", other_error);
-            }
-        }
-    };
+    
+    fn get_username() -> Result<String, io::Error> {
+        let mut f = File::open("hello.txt")?;
+        let mut s = String::new();
+        f.read_to_string(&mut s)?;
+        Ok(s)
+    }
 }
