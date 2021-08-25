@@ -1,20 +1,31 @@
 
 
-
-fn simple<T>(list: &[T]) -> T
+#[derive(Debug)]
+struct Point<T, U>
 {
-    let largest = list[0];
+    x: T,
+    y: U,
+}
 
-    for &item in list {
-        if item > largest {
-            largest = item;
+impl<T, U> Point<T, U>
+{
+
+    fn mixup<V, W>(self, point: Point<V, W>) -> Point<T, W>
+    {
+        return Point {
+            x: self.x,
+            y: point.y,
         }
     }
-
-    return largest;
 }
 
 
 fn main() {
-    println!("Hello, world!");
+
+    let p1 = Point{x: 1, y: 5.0};
+    let p2 = Point{x: "Hello", y: "good by"};
+
+    let p3 = p1.mixup(p2);
+
+    println!("P3 is {:#?}", p3);
 }
