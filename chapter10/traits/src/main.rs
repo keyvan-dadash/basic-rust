@@ -31,5 +31,13 @@ impl Summary for Tweet {
 }
 
 fn main() {
-    println!("Hello, world!");
+
+    let tweet = Tweet {
+        username: String::from("S.O.D"),
+        content: String::from("Hello rust"),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("summary of tweet {}", tweet.summrize());
 }
