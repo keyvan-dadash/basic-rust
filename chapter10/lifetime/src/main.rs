@@ -28,7 +28,7 @@ fn main() {
         println!("The longest string is {}", result);
 
         is_valid_struct = ImportantExcerpt {
-            x: result,
+            x: string1.as_str(),
         }
     }
 
