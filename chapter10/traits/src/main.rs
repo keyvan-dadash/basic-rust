@@ -30,6 +30,22 @@ impl Summary for Tweet {
     }
 }
 
+pub fn notify_param(item: &impl Summary) {
+    println!("Notify with params {}", item.summrize());
+}
+
+pub fn notify_by_generic<T: Summary>(item: &T) 
+{
+    println!("Notify with generic on function sig {}", item.summrize());
+}
+
+pub fn notify_by_where<T>(item: &T)
+where
+    T: Summary
+{
+    println!("Notify with where {}", item.summrize());
+}
+
 fn main() {
 
     let tweet = Tweet {
@@ -40,4 +56,10 @@ fn main() {
     };
 
     println!("summary of tweet {}", tweet.summrize());
+
+    println!("here we are going to test summary as params");
+
+    notify_param(&tweet);
+    notify_by_generic(&tweet);
+    notify_by_where(&tweet);
 }
