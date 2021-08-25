@@ -46,6 +46,30 @@ where
     println!("Notify with where {}", item.summrize());
 }
 
+
+struct Pair<T>
+{
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> 
+{
+    fn display(&self) {
+        println!("Pair struct from generic function");
+    }
+}
+
+impl<T> Pair<T>
+where
+    T: Summary
+{
+    fn display_summary(&self) {
+        println!("Pair struct summary for x={} and y={}", self.x.summrize(), self.y.summrize());
+    }
+}
+
+
 fn main() {
 
     let tweet = Tweet {
@@ -62,4 +86,26 @@ fn main() {
     notify_param(&tweet);
     notify_by_generic(&tweet);
     notify_by_where(&tweet);
+
+
+    println!();
+    println!();
+    println!();
+
+    println!("start conditionally method implementation");
+
+    let p_without = Pair{x: 5, y: 6};
+    p_without.display();
+    // p_without.display_summary(); //wont compile
+
+    let tweet1 = Tweet {
+        username: String::from("Another?"),
+        content: String::from("Bye rust"),
+        reply: false,
+        retweet: false,
+    };
+
+    let p_with = Pair{x: tweet, y: tweet1};
+    p_with.display();
+    p_with.display_summary();
 }
