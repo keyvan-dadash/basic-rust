@@ -70,6 +70,20 @@ where
 }
 
 
+trait Another {
+    fn simple_print(&self) {
+        println!("blanket implementation");
+    }
+}
+
+impl<T> Another for T
+where
+    T: Summary
+{
+
+}
+
+
 fn main() {
 
     let tweet = Tweet {
@@ -108,4 +122,18 @@ fn main() {
     let p_with = Pair{x: tweet, y: tweet1};
     p_with.display();
     p_with.display_summary();
+
+    println!();
+    println!();
+    println!();
+
+    println!("start blanket implementation");
+    let tweet2 = Tweet {
+        username: String::from("For blanket"),
+        content: String::from("Bye rust"),
+        reply: false,
+        retweet: false,
+    };
+
+    tweet2.simple_print();
 }
