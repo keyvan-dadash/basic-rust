@@ -7,9 +7,14 @@ fn main() {
     
     let v1 = vec![1, 2, 3];
 
-    let v1_iter = v1.iter();
+    let mut v1_iter = v1.iter();
 
-    for value in v1_iter {
-        println!("{}", value);
-    }
+    let value = v1_iter.next();
+    println!("value is {:#?}", value);
+
+    let value = v1_iter.next();
+    println!("value is {:#?}", value);
+
+    let value = v1_iter.next();
+    println!("value is {:#?}", value);
 }
