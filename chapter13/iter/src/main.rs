@@ -7,14 +7,8 @@ fn main() {
     
     let v1 = vec![1, 2, 3];
 
-    let mut v1_iter = v1.iter();
+    let v1_iter = v1.iter();
 
-    let value = v1_iter.next();
-    println!("value is {:#?}", value);
-
-    let value = v1_iter.next();
-    println!("value is {:#?}", value);
-
-    let value = v1_iter.next();
-    println!("value is {:#?}", value);
+    let total: u32 = v1_iter.sum();
+    println!("sum of vector is {}", total);
 }
