@@ -2,14 +2,14 @@
 
 use std::thread;
 use std::time::Duration;
-
+use std::collections::HashMap;
 
 struct Cacher<T>
 where
     T: Fn(u64) -> u64
 {
     calculation: T,
-    value: Option<u64>,
+    map: HashMap<u64, u64>,
 }
 
 
@@ -21,16 +21,16 @@ where
     {
         return Cacher {
             calculation: calculation,
-            value: None,
+            map: HashMap::new(),
         }
     }
 
     fn value(&mut self, arg: u64) -> u64 {
-        match self.value {
-            Some(v) => return v,
+        match self.map.get(&arg) {
+            Some(v) => return *v,
             None => {
                 let v = (self.calculation)(arg);
-                self.value = Some(v);
+                self.map.insert(arg, v);
                 return v;
             }
         }
