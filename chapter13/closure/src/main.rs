@@ -39,10 +39,13 @@ where
 
 fn example(number: u64) -> u64 {
 
-    let mut closure = Cacher::new(|num| -> u64 {
-        thread::sleep(Duration::from_secs(num));
+    let s = vec![1, 2, 3];
+    let mut closure = Cacher::new(move |num| -> u64 {
+        thread::sleep(Duration::from_secs(s[0]));
         return num*2;
     });
+
+    // println!("inside vec is {:#?}", s);
 
     println!("going sleep for {}....", number);
 
