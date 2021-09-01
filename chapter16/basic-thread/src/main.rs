@@ -5,15 +5,13 @@ use std::time::Duration;
 fn main() {
     
 
+        
+
+    let v1 = vec![1, 2, 3];
+
     let handler = std::thread::spawn(|| {
-        for i in 1..10 {
-            println!("hi number {} from the spawned thread!", i);
-            thread::sleep(Duration::from_millis(1));
-        }
+        println!("vector inside is {:#?}", v1);
     });
 
-    for i in 1..5 {
-        println!("hi number {} from the spawned thread!", i);
-        thread::sleep(Duration::from_millis(1));
-    }
+    handler.join().unwrap();
 }
